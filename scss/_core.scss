@@ -1,5 +1,9 @@
-.header{
-    height:1px;
-    display: flex;
-    flex-direction: column;
+body{
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
 }
