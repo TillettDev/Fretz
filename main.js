@@ -1,16 +1,32 @@
 var fretboard = document.getElementById("fretboard");
 
 
+
 var counter = 0;
+
+var className;
 
 var fret = document.createElement("div");
 
-while (counter < 72){
-    var fret = document.createElement("div");
-    
-    // var num = document.createTextNode(counter);
+var notes = ["C", "C♯", "D♭", "D", "D♯", "E♭", "E", "F", "F♯", "G♭", "G", "G♯"]
 
-    // fret.appendChild(num);
+while (counter < 72){
+
+
+
+    if ([14,26,38,50,66,70].indexOf(counter) > -1){
+        className = "fret_mark"
+    } else{ 
+        className = ""; 
+    }
+
+    if (counter == (counter)){
+        //work on nth term here - fix if
+    }
+    
+    var fret = document.createElement("div");
+    fret.className = className;
+    // fret.className = counter;
     fretboard.appendChild(fret);
     counter++;
 }

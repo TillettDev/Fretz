@@ -92,3 +92,19 @@
     display: flex;
     flex-direction: column;
 }
+
+.fret_mark{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &::after{
+        content: "✸";
+        width: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        color: #cfcfcf94;
+    }
+}
