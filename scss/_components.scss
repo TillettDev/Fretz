@@ -3,6 +3,7 @@
     width: 300px;
     margin: auto;
     display: grid;
+    grid-auto-flow: column;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(12, 1fr);
     grid-column-gap: 0px;
@@ -22,36 +23,42 @@
             margin: auto;
             margin-top: -3px;
         }
+    
 
-
-        &:nth-child(6n-5){
+        &:nth-child(-n+72){
             &::before{
+                
+                border-left: 1px solid #7c746a;
+            }
+        }
+        &:nth-child(-n+60){
+            &::before{
+                
+                border-left: 1px solid #7c746a;
+            }
+        }
+        &:nth-child(-n+48){
+            &::before{
+                
+                border-left: 2px solid #a18562;
+            }
+        }
+        &:nth-child(-n+36){
+            &::before{
+                
+                border-left: 2px solid #a18562;
+            }
+        }
+        &:nth-child(-n+24){
+            &::before{
+                
                 border-left: 3px solid #bd925d;
             }
         }
-        &:nth-child(6n-4){
+        &:nth-child(-n+12){
             &::before{
-                border-left: 3px solid #b9966b;
-            }
-        }
-        &:nth-child(6n-3){
-            &::before{
-                border-left: 2px solid #a18562;
-            }
-        }
-        &:nth-child(6n-2){
-            &::before{
-                border-left: 2px solid #a18562;
-            }
-        }
-        &:nth-child(6n-1){
-            &::before{
-                border-left: 1px solid #7c746a;
-            }
-        }
-        &:nth-child(6n){
-            &::before{
-                border-left: 1px solid #7c746a;
+                border-left: 3px solid #bd925d;
+                
             }
         }
     }
