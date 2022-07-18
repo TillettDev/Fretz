@@ -1,6 +1,8 @@
 var fretboard = document.getElementById("fretboard");
 
 
+var playerScore = 0;
+var totalGuess = 0;
 
 var counter = 0;
 
@@ -46,8 +48,66 @@ while (counter < 72){
     index++;
 }
 
+function generateRandomNote(){
 
-console.log(Math.floor(Math.random() * 72));
+    var randomNumber = Math.floor(Math.random() * 72);
+    console.log(fretboard.children[randomNumber]);
+    var randomFret = fretboard.children[randomNumber];
+    randomFret.className = "selected";
+    return randomFret;
+}
+
+var randomFret = generateRandomNote();
+var randomFretNote = randomFret.id;
+
+var playerScoreSpan = document.getElementById("playerScore"); 
+var totalGuessSpan = document.getElementById("totalGuesses");
+
+
+const noteBtns = document.querySelectorAll(".note_btn");
+
+noteBtns.forEach(button =>{
+    button.addEventListener("click", function handleClick(event){
+        var userGuess = button.value;
+
+        if (randomFretNote == "C#"){
+            flatNote = "Db";
+        } else if(randomFretNote == "D#"){
+            flatNote = "Eb";
+        } else if(randomFretNote == "F#"){
+            flatNote = "Gb";
+        } else if(randomFretNote == "G#"){
+            flatNote = "Ab";
+        } else if(randomFretNote == "A#"){
+            flatNote = "Bb";
+        }
+        else{
+            flatNote = randomFretNote;
+        }
+
+        if( userGuess == randomFretNote || userGuess == flatNote){
+            console.log("guess correct");
+
+            randomFret.classList = "";
+
+            randomFret = generateRandomNote()
+            randomFretNote = randomFret.id;
+
+            playerScore++;
+            playerScoreSpan.innerHTML = playerScore;
+
+        } else{
+            console.log("guess incorrect");
+        }
+
+        totalGuess++;
+        totalGuessSpan.innerHTML = totalGuess;
+    })
+})
+
+
+
+
 
 //generate random number, use that random number to target specific div inside .fretboard.
 //add class to that div to show it is selected
